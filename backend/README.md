@@ -1,6 +1,4 @@
-# Nama Aplikasi Anda
-
-Deskripsi singkat tentang aplikasi Anda di sini.
+# BackEnd Vendor Siloam App
 
 ## Instalasi
 
