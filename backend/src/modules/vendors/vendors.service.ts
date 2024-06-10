@@ -113,9 +113,13 @@ export const updateVendor = async ({ vendorId, vendorName, address, unitId }: Ve
 
 export const deleteVendor = async (id: string, unitId: number) => {
     try {
-        const remove = await Vendors.update({
-            isDelete: true
-        }, {
+        // const remove = await Vendors.update({
+        //     isDelete: true
+        // }, {
+        //     where: { vendorId: id, unitId }
+        // })
+
+        const remove = await Vendors.destroy({
             where: { vendorId: id, unitId }
         })
 

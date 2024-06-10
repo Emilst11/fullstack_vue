@@ -1,6 +1,6 @@
 import { Axios } from "../axios"
 import { IApiResponse } from "../stores/responses/IResponses"
-import { IVendorPayload, IVendorPostPayload } from "../stores/vendor/IVendorStore"
+import { IVendorDeletePayload, IVendorPayload, IVendorPostPayload } from "../stores/vendor/IVendorStore"
 
 export const handleGetVendorService = async ({ id, page, pageSize }: IVendorPayload): Promise<IApiResponse> => {
     try {
@@ -14,6 +14,25 @@ export const handleGetVendorService = async ({ id, page, pageSize }: IVendorPayl
 export const handlePostVendorService = async(payload: IVendorPostPayload): Promise<IApiResponse> => {
     try {
         const { data } = await Axios.post('/vendors', payload)
+        return data
+    } catch (error: any) {
+        return error.response.data
+    }
+}
+
+export const handleDeleteVendorService = async(payload: IVendorDeletePayload): Promise<IApiResponse> => {
+    try {
+        const { data } = await Axios.delete(`vendors/?vendorId=${payload.vendorId}&unit=${payload.unit}`) 
+
+        return data
+    } catch (error: any) {
+        return error.response.data
+    }
+}
+
+export const handleUpdateVendorService = async(payload: IVendorPostPayload) : Promise<IApiResponse> => {
+    try {
+        const { data } = await Axios.put('/vendors/', payload)
         return data
     } catch (error: any) {
         return error.response.data

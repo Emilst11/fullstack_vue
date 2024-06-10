@@ -31,3 +31,8 @@ export interface IVendorPostPayload {
     address: string
     unitId?: number
 }
+
+export interface IVendorDeletePayload {
+    vendorId: string
+    unit: number
+}
